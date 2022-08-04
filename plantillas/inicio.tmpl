@@ -1,0 +1,44 @@
+{{ define "inicio" }}
+{{ template "cabecera" }}
+    <div style="margin-left: 20px;">
+    <a name="" id="" class="btn btn-primary" href="/crear" role="button">Agregar Servicio</a>
+    </div>
+<br/><br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Trabajo</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{ range.}}
+            <tr>
+                <td> {{.Id}} </td>
+                <td> {{.Nombre}} </td>
+                <td> {{.Equipo}} </td>
+                <td> {{.Trabajo}} </td>
+                <td> {{.Telefono}} </td>
+                <td> {{.Correo}} </td>
+                <td> {{.Fecha}} </td>
+                <td> 
+                
+                <a name="" id="" class="btn btn-warning" href="/editar?id={{.Id}}" role="button">Editar</a>
+                 |
+                <a name="" id="" class="btn btn-danger" href="/borrar?id={{.Id}}" role="button">Borrar</a>
+                
+                </td>
+            </tr>
+          {{end}}  
+        </tbody>
+    </table>
+        
+ 
+{{ template "pie" }}
+{{end}}
