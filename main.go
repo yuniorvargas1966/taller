@@ -1,4 +1,3 @@
-// Referencia video https://www.youtube.com/watch?v=G58gN0lIbyI
 package main
 
 import (
