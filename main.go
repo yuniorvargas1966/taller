@@ -14,10 +14,10 @@ var status = 301
 func conexionBD() (conexion *sql.DB) {
 	Driver := "mysql"
 	Usuario := "root"
-	Contrasenia := ""
+	Contrasena := ""
 	Nombre := "taller"
 
-	conexion, err := sql.Open(Driver, Usuario+":"+Contrasenia+"@tcp(127.0.0.1)/"+Nombre)
+	conexion, err := sql.Open(Driver, Usuario+":"+Contrasena+"@tcp(127.0.0.1)/"+Nombre)
 	if err != nil {
 		panic(err.Error())
 	}
