@@ -3,8 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"html/template"
 	"net/http"
-	"text/template"
+	//"text/template"
 
 	_ "github.com/go-sql-driver/mysql"
 )
