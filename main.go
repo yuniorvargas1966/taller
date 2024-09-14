@@ -8,15 +8,18 @@ import (
 	//"text/template"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
 )
 
 var status = 301
 
 func conexionBD() (conexion *sql.DB) {
-	Driver := "mysql"
-	Usuario := "root"
-	Contrasena := ""
-	Nombre := "taller"
+	godotenv.Load()
+
+	Driver := os.Getenv("Driver")
+	Usuario := os.Getenv("Usuario")
+	Contrasena := os.Getenv("Contrasena")
+	Nombre := os.Getenv("Nombre")
 
 	conexion, err := sql.Open(Driver, Usuario+":"+Contrasena+"@tcp(127.0.0.1)/"+Nombre)
 	if err != nil {
@@ -28,7 +31,11 @@ func conexionBD() (conexion *sql.DB) {
 var plantillas = template.Must(template.ParseGlob("plantillas/*"))
 
 func main() {
+	port := os.Getenv("PORT")
 
+	if port == "" {
+		port = "8080"
+	}
 	http.HandleFunc("/", Inicio)
 
 	http.HandleFunc("/crear", Crear)
