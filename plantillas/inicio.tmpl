@@ -31,14 +31,27 @@
                 
                 <a name="" id="" class="btn btn-warning" href="/editar?id={{.Id}}" role="button">Editar</a>
                  |
-                <a name="" id="" class="btn btn-danger" href="/borrar?id={{.Id}}" role="button">Borrar</a>
+                <a name="" id="" class="btn btn-danger btnDelete" href="/borrar?id={{.Id}}" role="button">Borrar</a>
                 
                 </td>
             </tr>
           {{end}}  
         </tbody>
     </table>
-        
+<script>
+const btnDelete = document.querySelectorAll('.btnDelete')
+
+if (btnDelete) {
+    const btnArray = Array.from(btnDelete);
+    btnArray.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            if (!confirm('Estás seguro de querer eliminarlo?')) {
+                e.preventDefault();
+            }
+        });
+    });
+}
+</script>         
  
 {{ template "pie" }}
 {{end}}
