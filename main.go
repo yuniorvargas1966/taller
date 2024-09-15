@@ -6,8 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	//"text/template"
-
+	
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
 )
