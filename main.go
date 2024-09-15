@@ -48,8 +48,8 @@ func main() {
 
 	http.HandleFunc("/actualizar", Actualizar)
 
-	fmt.Println("Servidor corriendo en el puerto 8080, entre a http://localhost:8080/")
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("Servidor corriendo en el puerto" + port + ", entre a http://localhost:8080/")
+	http.ListenAndServe(port, nil)
 }
 
 func Borrar(w http.ResponseWriter, r *http.Request) {
